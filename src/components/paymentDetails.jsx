@@ -68,7 +68,6 @@ class PaymentDetails extends Component {
 
     var form = document.getElementById('payment-form');
     form.addEventListener('submit', function(event) {
-      console.log('hello?')
       event.preventDefault();
 
       //update global payment remaining and total paid here
