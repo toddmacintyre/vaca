@@ -3,7 +3,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 export const muiTheme = getMuiTheme({
   palette: {
     primary1Color: '#EA750A',
-    // primary2Color: cyan700,
+    primary2Color: '#FF0055',
     // primary3Color: grey400,
     accent1Color: '#FF0055',
     // accent2Color: grey100,
@@ -19,3 +19,16 @@ export const muiTheme = getMuiTheme({
     // shadowColor: fullBlack,
   },
 });
+
+export const styleFlatButtonContainer = {
+  position: 'absolute',
+  bottom: '24px',
+  width: '100%',
+  left: '0',
+  textAlign: 'center'
+}
+
+export const styleFlatButton = {
+  height: '72px',
+  borderRadius: '36px'
+}

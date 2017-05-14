@@ -3,18 +3,12 @@
  * which incorporates components provided by Material-UI.
  */
 import React, {Component} from 'react';
-import {deepOrange500} from 'material-ui/styles/colors';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 import DatePicker from 'material-ui/DatePicker';
 import FlatButton from 'material-ui/FlatButton';
 
-
-const muiTheme = getMuiTheme({
-  palette: {
-    accent1Color: deepOrange500,
-  },
-});
+import Header from './header';
+import {styleFlatButtonContainer, styleFlatButton} from '../shared/style'
 
 class DateRangePicker extends Component {
   constructor(props) {
@@ -53,32 +47,36 @@ class DateRangePicker extends Component {
 
   render() {
     return (
-      <MuiThemeProvider muiTheme={muiTheme}>
-        <div className="container">
-          <div className="text-center">
-            <h2>I will be free around...</h2>
-            <div>
-              From...
-              <DatePicker
-                onChange={this.handleChangeMinDate}
-                autoOk={this.state.autoOk}
-                floatingLabelText="Min Date"
-                defaultDate={this.state.minDate}
-                disableYearSelection={this.state.disableYearSelection}
-              />
-              To...
-              <DatePicker
-                onChange={this.handleChangeMaxDate}
-                autoOk={this.state.autoOk}
-                floatingLabelText="Max Date"
-                defaultDate={this.state.maxDate}
-                disableYearSelection={this.state.disableYearSelection}
-              />
-            </div>
-            <FlatButton label="Next" />
+      <div>
+        <Header />
+        <div className="container wizard">
+          <h2 className="text-center">I will be free around...</h2>
+          <div className="content">
+            <DatePicker
+              onChange={this.handleChangeMinDate}
+              autoOk={this.state.autoOk}
+              floatingLabelText="From..."
+              defaultDate={this.state.minDate}
+              disableYearSelection={this.state.disableYearSelection}
+              fullWidth={true}
+            />
+            <DatePicker
+              onChange={this.handleChangeMaxDate}
+              autoOk={this.state.autoOk}
+              floatingLabelText="To..."
+              defaultDate={this.state.maxDate}
+              disableYearSelection={this.state.disableYearSelection}
+              fullWidth={true}
+            />
+          </div>
+          <div style={styleFlatButtonContainer}>
+            <FlatButton
+              label="Next"
+              style={styleFlatButton}
+            />
           </div>
         </div>
-      </MuiThemeProvider>
+      </div>
     );
   }
 }
