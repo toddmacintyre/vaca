@@ -6,6 +6,7 @@ import FlatButton from 'material-ui/FlatButton';
 class PaymentDetails extends Component {
   constructor(props) {
     super(props)
+    console.log('props? ', props)
   }
 
   componentDidMount() {
@@ -88,11 +89,18 @@ class PaymentDetails extends Component {
     });
   }
 
+  redirect = () => {
+    this.props.history.push('/main');
+  }
+
   render() {
+    console.log('context? ', this.context)
+    console.log('props? ', this.props)
+    console.log('state? ', this.state)
     return (
       <div className="container wizard">
         <div className="row">
-          <h2 style={{textAlign: "center", marginTop: '80'}}>How would you like to put in ${this.props.paymentAmount}/day?</h2>
+          <h2 style={{textAlign: "center", marginTop: '80'}}>How would you like to put in ${this.props.location.pathname.slice(this.props.location.pathname.indexOf('?') + 1)}/day?</h2>
           <div className="col-xs-12">
             <br />
             <form id="payment-form">
@@ -113,7 +121,15 @@ class PaymentDetails extends Component {
                 />
               </div>
               <br />
-              <button type="submit" className="btn btn-large">Submit Payment</button>
+              <div className="text-center">
+                <FlatButton
+                  style={{textAlign: "center"}}
+                  label="Confirm Payment"
+                  onTouchTap={() => this.redirect()}
+                  type="submit"
+                />
+              </div>
+              <p className="text-center">(Woohoo!)</p>
             </form>
           </div>
         </div>
