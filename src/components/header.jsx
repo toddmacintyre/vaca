@@ -25,13 +25,18 @@ const HeaderWaves =
   </svg>
 
 class Header extends Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
     return (
       <div>
         <AppBar 
           style={styleHeader}
           title={<div style={styleHeaderTitle}>{logoSmall}</div>}
-          onLeftIconButtonTouchTap={() => {}}
+          onLeftIconButtonTouchTap={() => {
+            this.props.handleDrawerClick()}
+          }
         />
         {HeaderWaves}
       </div>
