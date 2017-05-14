@@ -45,6 +45,10 @@ class PlanPicker extends Component {
     };
   }
 
+  reroute () {
+    this.props.history.push('/tripItinerary');
+  }
+
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
@@ -61,6 +65,7 @@ class PlanPicker extends Component {
                     style={styles.grid}
                     key={key++}
                     title={tile.name}
+                    onTouchTap={() => {this.reroute()}}
                     subtitle={tile.time}
                   >
                     <img src={tile.img} />
