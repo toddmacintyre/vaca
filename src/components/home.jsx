@@ -3,19 +3,13 @@
  * which incorporates components provided by Material-UI.
  */
 import React, {Component} from 'react';
-import {deepOrange500} from 'material-ui/styles/colors';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Chip from 'material-ui/Chip';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
+import Header from './header';
 
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
-const muiTheme = getMuiTheme({
-  palette: {
-    accent1Color: deepOrange500,
-  },
-});
 
 function handleRequestDelete() {
   alert('You clicked the delete button.');
@@ -30,13 +24,26 @@ class Home extends Component {
     super(props);
     this.state = {
       chipData: [
-        {key: 0, label: 'Beach'},
-        {key: 1, label: 'City'},
-        {key: 2, label: 'New Orleans'},
-        {key: 3, label: 'Florida'},
-        {key: 4, label: 'France'},
-        {key: 5, label: 'London'},
-
+        {key: 0, label: "Beach"},
+        {key: 1, label: "City"},
+        {key: 2, label: "History"},
+        {key: 3, label: "Music"},
+        {key: 4, label: "Night Life"},
+        {key: 5, label: "Attractions"},
+        {key: 6, label: "Cusine"},
+        {key: 7, label: "Outdoors"},
+        {key: 8, label: "Sites"},
+        {key: 9, label: "Relaxation"},
+        // {ky: 10, label: "Saenger Theatre"},
+        // {key: 11, label: "Lions Gate Bridge"},
+        // {key: 12, label: "Manoa Falls"},
+        // {key: 13, label: "Saddle Road"},
+        // {key: 14, label: "Diamond Head"},
+        // {key: 15, label: "The Shops At Wailea"},
+        // {key: 16, label: "Mauna Kea Summit"},
+        // {key: 17, label: "Lake Washington"},
+        // {key: 18, label: "Spa Grande"},
+        // {key: 19, label: "Cabildo"},
       ],
 
       interestData: []
@@ -44,20 +51,43 @@ class Home extends Component {
     this.styles = {
       chip: {
         margin: 4,
+        backgroundColor: '#FF0055',
+        labelColor: "#FFFFFF",
+        padding: "5px",
+        borderRadius: '20px'
+      },
+      chipLabel: {
+        color: "#FFFFFF",
+        fontSize: "16px"
+      },
+      button: {
+        margin: 4,
+        backgroundColor: "#F5F5F5",
+        padding: "5px",
+        color:"#FF0055",
+        borderRadius: '20px'
+      },
+      buttonLabel: {
+        color:"#FF0055",
+        fontSize: "16px"
       },
       wrapper: {
         display: 'flex',
         flexWrap: 'wrap',
-        align: 'center'
+        align: 'center',
+        justifyContent: 'center',
+        marginTop: '36px'
       },
       container: {
         textAlign: 'center',
       },
+      nextButtonLabel : {
+        textTransform: "none"
+      }
     };
   }
 
   handleRequestDelete = (data) => {
-    console.log(data);
     this.interestData = this.state.interestData;
     this.chipData = this.state.chipData;
     const chipToDelete = this.interestData.map((chip) => chip.key).indexOf(data.key);
@@ -66,24 +96,29 @@ class Home extends Component {
     this.setState({interestData: this.interestData, chipData: this.chipData});
   };
 
+  redirect = () => {
+    this.props.history.push("/date-picker");
+  }
+
   renderButtons(data) {
     return (
-      <RaisedButton
+      <Chip
         key={data.key}
         onTouchTap={() => this.addToInterests(data)}
-        style={this.styles.chip}
+        style={this.styles.button}
+        labelStyle={this.styles.buttonLabel}
       >
         {data.label}
-      </RaisedButton>
+      </Chip>
     );
   }
 
   renderChips(data) {
-    console.log("rendering chips");
     return (
       <Chip
         key={data.key}
         onRequestDelete={() => this.handleRequestDelete(data)}
+        labelStyle={this.styles.chipLabel}
         style={this.styles.chip}
       >
         {data.label}
@@ -94,14 +129,17 @@ class Home extends Component {
   showNext() {
     if (this.state.interestData.length > 0) {
       return (
-        <FlatButton label="Next" />
+        <div className="next-button-wrap">
+          <FlatButton 
+            onTouchTap={() => this.redirect()}
+            labelStyle={this.styles.nextButtonLabel} 
+            label="Next" className="next-button" />
+        </div>
       )
     }
   }
 
   addToInterests = (data) => {
-    console.log("adding to interests");
-    console.log(data);
     this.interestData = this.state.interestData;
     this.chipData = this.state.chipData;
     this.interestData.push({
@@ -109,24 +147,23 @@ class Home extends Component {
       label: data.label
     });
     const chipToDelete = this.chipData.map((chip) => chip.key).indexOf(data.key);
-    console.log(chipToDelete);
     this.chipData.splice(chipToDelete, 1);
     this.setState({
       chipData: this.chipData,
       interestData: this.interestData
     });
-    console.log(this.state.interestData);
   }
   
   render() {
     return (
-      <MuiThemeProvider muiTheme={muiTheme}>
-        <div className="container">
+      <div>
+        <div className="container wizard">
           <div className="text-center">
-            <h1>Vaca</h1>
             <h2>I dream to go to...</h2>
-            <div style={this.styles.wrapper}>
-              {this.state.interestData.map(this.renderChips, this)}
+            <div className="selected-chips">
+              <div style={this.styles.wrapper}>
+                {this.state.interestData.map(this.renderChips, this)}
+              </div>
             </div>
             <br/>
             <div style={this.styles.wrapper}>
@@ -135,7 +172,7 @@ class Home extends Component {
             {this.showNext()}
           </div>
         </div>
-      </MuiThemeProvider>
+      </div>
     );
   }
 }

@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Routes from './config/routes';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+
+import { muiTheme } from './shared/style'
 
 export default class AppProvider extends Component {
   constructor() {
@@ -15,9 +19,9 @@ export default class AppProvider extends Component {
 
   render() {
     return (
-        <div>
+        <MuiThemeProvider muiTheme={muiTheme}>
           <Routes />
-        </div>
+        </MuiThemeProvider>
     );
   }
 }

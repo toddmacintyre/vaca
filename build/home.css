@@ -1,0 +1,73 @@
+body, html {
+  height:100%;
+  font-size:16px;
+}
+.selected-chips {
+  min-height:75px;
+}
+.selected-chips span {
+  color:#fff !important; 
+}
+
+.next-button-wrap {
+  position:absolute;
+  bottom:0px;
+  padding:75px 0px 20px;
+  width:100%;
+  margin-left:-15px;
+  display:block;
+  background:url("img/button-bg-5.png") center center;
+  background-size:cover;
+}
+.next-button {
+  color:#fff !important;
+  font-weight:bold !important;
+  transform: scale(1.5);
+  text-transform:capitalize !important;
+}
+
+#splash {
+  position:absolute;
+  z-index:9999;
+  left:0px;
+  top:0px;
+  height:100%;
+  width:100%;
+  overflow:hidden;
+  transition:all ease 1s;
+}
+.splash-div {
+  z-index: 9999;
+  position:absolute;
+  left:0px;
+  top:0px;
+  height:100%;
+  width:100%;
+  background-size:cover;
+  transform: scale(1,1);
+}
+#splash-1 {background-image: url('img/splash-1.png');   transition:all ease 2s; }
+#splash-2 {background-image: url('img/splash-2.png'); transition: all ease 3s;}
+#splash-3 {background-image: url('img/splash-3.png'); transition: all ease 4s;}
+#splash-4 {background-image: url('img/splash-4.png'); transition: all ease 2s;}
+.hide-splash-div {
+  z-index: 9999;
+  position:absolute;
+  left:0px;
+  top:0px;
+  height:100%;
+  width:100%;
+  background-size:cover;
+  transform: scale(5,5);
+}
+.hide-splash-div2 {
+  z-index: 9999;
+  position:absolute;
+  left:0px;
+  top:-100%;
+  height:100%;
+  width:100%;
+  background-size:cover;
+}
+.hide-splash {
+}
