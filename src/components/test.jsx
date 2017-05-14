@@ -8,12 +8,17 @@ class Test extends Component {
     this.reqBody = {
       text: 'Why, hello...',
     }
+
+    this.state = {
+      message: '',
+    }
   }
 
   componentWillMount() {
     axios.post('/nexmo', this.reqBody)
-      .then(function (response) {
-        console.log('++++++++', response.data);
+      .then(response => {
+        console.log(response.data);
+        this.setState({message: response.data});
       })
       .catch(function (error) {
         console.log(error);
@@ -23,7 +28,7 @@ class Test extends Component {
   render() {
     return (
       <div>
-        <p>Testing</p>
+        <p>{this.state.message}</p>
       </div>
     );
   }
