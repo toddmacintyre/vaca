@@ -4,11 +4,11 @@ const axios = require('axios');
 const test = (text) => {
   console.log('text', text);
 
-  const makeRequest = false; // change this back to true to start making api calls again
+  const makeRequest = 'sms'; // change this back to true to start making api calls again
 
   const reqBody = {
-    "from": "16026707502",
-    "to": "16026707502",
+    "from": "12035338310",
+    "to": "13306928816",
     "type": "text",
     "text": text,
     "api_key": env.nexmoKey,
@@ -19,6 +19,7 @@ const test = (text) => {
   if (makeRequest === 'sms') {
     return axios.post('https://rest.nexmo.com/sms/json', reqBody)
       .then(function (response) {
+        console.log('+++++++', response.data);
         return `success: ${response}`;
       })
       .catch(function (error) {
@@ -31,3 +32,6 @@ const test = (text) => {
 }
 
 module.exports = { test, };
+
+// 13306928816
+// 12035338310
