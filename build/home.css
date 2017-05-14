@@ -33,10 +33,41 @@ body, html {
   top:0px;
   height:100%;
   width:100%;
-  background:url("img/splash.png") center center no-repeat;
-  background-size:cover;
+  overflow:hidden;
   transition:all ease 1s;
 }
+.splash-div {
+  z-index: 9999;
+  position:absolute;
+  left:0px;
+  top:0px;
+  height:100%;
+  width:100%;
+  background-size:cover;
+  transform: scale(1,1);
+}
+#splash-1 {background-image: url('img/splash-1.png');   transition:all ease 2s; }
+#splash-2 {background-image: url('img/splash-2.png'); transition: all ease 3s;}
+#splash-3 {background-image: url('img/splash-3.png'); transition: all ease 4s;}
+#splash-4 {background-image: url('img/splash-4.png'); transition: all ease 2s;}
+.hide-splash-div {
+  z-index: 9999;
+  position:absolute;
+  left:0px;
+  top:0px;
+  height:100%;
+  width:100%;
+  background-size:cover;
+  transform: scale(5,5);
+}
+.hide-splash-div2 {
+  z-index: 9999;
+  position:absolute;
+  left:0px;
+  top:-100%;
+  height:100%;
+  width:100%;
+  background-size:cover;
+}
 .hide-splash {
-  opacity:0;
 }
