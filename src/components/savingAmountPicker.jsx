@@ -5,6 +5,7 @@ import IconButton from 'material-ui/IconButton';
 import UpArrow from 'material-ui/svg-icons/navigation/expand-less';
 import DownArrow from 'material-ui/svg-icons/navigation/expand-more';
 import Smiley from 'material-ui/svg-icons/social/mood';
+import FlatButton from 'material-ui/FlatButton';
 
 class SavingAmountPicker extends Component {
   constructor(props) {
@@ -67,6 +68,9 @@ class SavingAmountPicker extends Component {
   // componentWillReceiveProps(nextProps) {
   //   this.totalDays();
   // }
+    redirect = () => {
+    this.props.history.push("/paymentdetails");
+  }
 
   render() {
     return (
@@ -82,7 +86,7 @@ class SavingAmountPicker extends Component {
                 this.handleUpArrow()
               }}
             >
-              <UpArrow />
+              <img className="arrow" src="img/money-adjust-up.png"/>
             </IconButton>
 
             <IconButton
@@ -90,17 +94,28 @@ class SavingAmountPicker extends Component {
                 this.handleDownArrow();
               }}
             >
-              <DownArrow />
+              <img className="arrow" src="img/money-adjust-down.png"/>
             </IconButton>
 
+            <img className="background" src="img/money-blob.png"/>
           </div>
-          <div className="col-xs-12">
+          <h2 className="text-center">
             every day for {this.state.totalDays} days,
-          </div>
+          </h2>
           <div className="col-xs-12">
             so I can go to my dream vacation<br />in {this.state.location} for {this.state.tripDays} days
             <Smiley />
           </div>
+        </div>
+        <div className="savings-amount-button">
+          <FlatButton
+          className="savings-amount-real-button"
+          onTouchTap={() => this.redirect()}
+          style={{textAlign: "center"}} 
+          type="submit"
+          label="Start Saving!"
+          fullWidth={true}
+          />
         </div>
       </div>
     );
