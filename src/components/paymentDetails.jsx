@@ -94,6 +94,7 @@ class PaymentDetails extends Component {
     return (
       <div className="container">
         <div className="row">
+          <h3 style={{textAlign: "center"}}>Make A Payment!</h3>
           <div className="col-xs-12">
             <TextField
               fullWidth={true}
@@ -107,9 +108,9 @@ class PaymentDetails extends Component {
             /><br />
             <form id="payment-form">
               <div className="form-row">
-                <h5 style={{textAlign: "center"}} htmlFor="card-element">
+                <p htmlFor="card-element">
                   Credit or debit card
-                </h5>
+                </p>
                 <div id="card-element">
                 </div>
                 <div id="card-errors" role="alert"></div>
