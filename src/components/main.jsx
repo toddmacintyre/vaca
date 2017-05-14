@@ -59,14 +59,20 @@ class MainPage extends React.Component {
     super(props);
 
     this.state = {
-      goal: 5,
-      completeness: 0,
-      background: 'img/photo-nola.jpg'
+      savingStatus: 5,
+      savingGoal: 1000,
+      background: 'img/photo-nola.jpg',
+      completed: false
     };
+    this.completeness = 0
   }
 
   componentDidMount() {
-    this.timer = setTimeout(() => this.progress(1), 25);
+    let savingStatus = parseInt(this.props.location.search.substring(this.props.location.search.indexOf('?saved=') + 7, this.props.location.search.indexOf('&')))
+    let savingGoal = parseInt(this.props.location.search.slice(this.props.location.search.indexOf('&goal=') + 6))
+    this.setState({savingStatus, savingGoal});
+
+    if (savingStatus >= savingGoal) {this.setState({completed: true})}
   }
 
   componentWillUnmount() {
@@ -74,19 +80,23 @@ class MainPage extends React.Component {
   }
 
   progress(completed) {
-    if (completed > this.state.goal) {
+    let percentage = this.state.savingStatus / this.state.savingGoal * 100
+    console.log(percentage)
+    if (completed > percentage) {
       clearTimeout(this.timer);
-      this.setState({completeness: this.state.goal})
+      this.completeness = percentage
     } else {
       this.timer = setTimeout(() => this.progress(completed + 1), 25);
-      this.setState({completeness: completed + 1})
+      this.completeness = completed + 1
     }
   }
 
   tilesData = TripsData;
 
   render() {
-    return (
+    this.timer = setTimeout(() => this.progress(1), 25);
+
+    var incompleteSaving =
       <div className="container pictureheader-medium">
         <PictureHeader
           heightType={'medium'} 
@@ -95,8 +105,8 @@ class MainPage extends React.Component {
           />
         <h2 className="text-center">You have saved</h2>
         <div className="content text-center">
-          <h1 className="money">$10</h1>
-          <LinearProgress color='#FF0055' mode="determinate" value={this.state.completeness} /><br/>
+          <h1 className="money">${this.state.savingStatus}</h1>
+          <LinearProgress color='#FF0055' mode="determinate" value={this.state.savingStatus / this.state.savingGoal * 100} /><br/>
           <p>Off to a good start! Just 3 more months to go.</p>
 
           <h2 className="plan-picker-hdr">Save a little more for...</h2>
@@ -124,6 +134,26 @@ class MainPage extends React.Component {
             </GridList>
           </div>
         </div>
+      </div>
+
+    var completeSaving =
+      <div className="container pictureheader-large">
+        <PictureHeader
+          heightType={'large'} 
+          backgroundImage={this.state.background}
+          content={
+            <div>
+              <h3>5 days in</h3>
+              <img className='cityLogo' src='img/city-logo-nola.png'/>
+              <h2>OMG You did it!!</h2>
+              <h1 className="money">${this.state.savingStatus}</h1>
+            </div>}
+          />
+      </div>
+
+    return (
+      <div>
+        {this.state.completed ? completeSaving : incompleteSaving}
       </div>
     );
   }
