@@ -50,3 +50,26 @@
 .savings-amount-button .savings-amount-real-button span {
   text-transform:none !important;
 }
+.bottom-btn-wrap {
+  position:fixed;
+  bottom:0px;
+  padding:95px 0px 20px;
+  width:100%;
+  margin-left:-15px;
+  display:block;
+  background:url("img/button-bg-6.png") center center;
+  background-size:cover;
+
+}
+.bottom-btn-wrap button {
+  color:#fff !important;
+  font-weight:bold !important;
+  transform: scale(1.25);
+}
+.bottom-btn-wrap button span {
+  text-transform:none !important;
+}
+.bottom-btn-wrap p {
+  font-size:16px;
+  color:#fff;
+}

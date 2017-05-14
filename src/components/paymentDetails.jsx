@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import env from '../../env.json';
+import FlatButton from 'material-ui/FlatButton';
 
 class PaymentDetails extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      paymentAmount: '',
-    }
+    console.log('props? ', props)
+    this.paymentAmount = window.location.search.slice(1) || 10;
   }
 
   componentDidMount() {
@@ -90,22 +90,17 @@ class PaymentDetails extends Component {
     });
   }
 
+  redirect = () => {
+    this.props.history.push('/main');
+  }
+
   render() {
     return (
       <div className="container wizard">
         <div className="row">
-          <h2 style={{textAlign: "center"}}>Make A Payment!</h2>
+          <h2 style={{textAlign: "center", marginTop: 80}}>How would you like to put in ${this.paymentAmount}/day?</h2>
           <div className="col-xs-12">
-            <TextField
-              fullWidth={true}
-              hintText="$ Payment Amount"
-              value={this.state.paymentAmount}
-              onChange={(e) => {
-                this.setState({
-                  paymentAmount: e.target.value,
-                })
-              }}
-            /><br />
+            <br />
             <form id="payment-form">
               <div className="form-row">
                 <p htmlFor="card-element">
@@ -115,7 +110,24 @@ class PaymentDetails extends Component {
                 </div>
                 <div id="card-errors" role="alert"></div>
               </div>
-              <button type="submit" className="btn btn-large">Submit Payment</button>
+              <br />
+              <div className="text-center">
+                <p>OR</p>
+                <FlatButton
+                  style={{textAlign: "center",color: "#EA750A",scale:"scale(1.2)"}}
+                  label="ADD A BANK ACCOUNT"
+                />
+              </div>
+              <br />
+              <div className="text-center bottom-btn-wrap">
+                <FlatButton
+                  style={{textAlign: "center"}}
+                  label="Confirm Payment"
+                  onTouchTap={() => this.redirect()}
+                  type="submit"
+                />
+                <p className="text-center">(Woohoo!)</p>
+              </div>
             </form>
           </div>
         </div>
