@@ -7,9 +7,6 @@ import React, {Component} from 'react';
 import DatePicker from 'material-ui/DatePicker';
 import FlatButton from 'material-ui/FlatButton';
 
-import Header from './header';
-import {styleFlatButton} from '../shared/style'
-
 class DateRangePicker extends Component {
   constructor(props) {
     super(props);
