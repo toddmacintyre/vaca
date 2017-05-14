@@ -15,7 +15,7 @@ class TripItinerary extends Component {
     while (this.highlights.length < 4) {
       console.log(itinerary)
       let current = itinerary[0].events[~~(Math.random() * itinerary[0].events.length)]
-      if (!this.highlights.includes(current) && !(current.name.includes('Hotel') || current.name.includes('Free'))) this.highlights.push(current);
+      if (!this.highlights.includes(current) && !(current.name.includes('Hotel') || current.name.includes('Free') || current.name.includes('Airport') || current.name.includes('R T A'))) this.highlights.push(current);
     }
     console.log(this.highlights)
     this.state = {
@@ -36,11 +36,15 @@ class TripItinerary extends Component {
     }
   }
 
+  redirect = () => {
+    this.props.history.push("/savingAmountPicker");
+  }
+
   render() {
     return (
+      <div className="container wizard">
         <div className="col-xs-12">
-          <img src={this.highlights[3].thumbnail}/>
-          <p>Highlights</p>
+          <h3>Highlights</h3>
           <List>
             {this.state.locations.map((val, index) => (
               <ListItem
@@ -58,14 +62,18 @@ class TripItinerary extends Component {
             e.preventDefault();
             console.log('hey')
           }}>
-            <FlatButton
-            style={{textAlign: "center"}} 
-            type="submit"
-            label="Let's do it!"
-            fullWidth={true}
-            />
           </form>
       </div>
+      <div className="trip-itinerary-button">
+        <FlatButton
+        onTouchTap={() => this.redirect()}
+        style={{textAlign: "center"}} 
+        type="submit"
+        label="Let's do it!"
+        fullWidth={true}
+        />
+      </div>
+    </div>
     )
   }
 }
