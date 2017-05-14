@@ -80,7 +80,7 @@ class SavingAmountPicker extends Component {
         <br />
         every day for {this.state.totalDays} days,
         <br />
-        so I can go to my dream vacation in New Orleans for {this.state.tripDays}
+        so I can go to my dream vacation in New Orleans for {this.state.tripDays} days!
       </div>
     );
   }
