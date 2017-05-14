@@ -22,6 +22,15 @@ class SavingAmountPicker extends Component {
     this.totalDays = this.totalDays.bind(this);
     this.handleUpArrow = this.handleUpArrow.bind(this);
     this.handleDownArrow = this.handleDownArrow.bind(this);
+
+    this.styles = {
+      centering: {
+        "text-align": "center",
+      },
+      topper: {
+        "margin-top": 40,
+      }
+    }
   }
 
   // amountPerDay() {
@@ -52,7 +61,7 @@ class SavingAmountPicker extends Component {
   }
 
   componentWillMount() {
-    this.totalDays();
+    this.setState({totalDays: this.totalDays()});
   }
 
   // componentWillReceiveProps(nextProps) {
@@ -61,29 +70,36 @@ class SavingAmountPicker extends Component {
 
   render() {
     return (
-      <div>
-        Help me save
-        <br />
-        ${this.state.amountPerDay}
-        <IconButton
-          onTouchTap={() => {
-            this.handleUpArrow()
-          }}
-        >
-          <UpArrow />
-        </IconButton>
-        <IconButton
-          onTouchTap={() => {
-            this.handleDownArrow();
-          }}
-        >
-          <DownArrow />
-        </IconButton>
-        <br />
-        every day for {this.state.totalDays} days,
-        <br />
-        so I can go to my dream vacation in {this.state.location} for {this.state.tripDays} days
-        <Smiley />
+      <div style={this.styles.centering} className="container">
+        <div className="row">
+          <div style={this.styles.topper} className="col-xs-8 col-xs-offset-2">
+            Help me save
+          </div>
+          <div className="col-xs-12">
+            ${this.state.amountPerDay}
+            <IconButton
+              onTouchTap={() => {
+                this.handleUpArrow()
+              }}
+            >
+              <UpArrow />
+            </IconButton>
+            <IconButton
+              onTouchTap={() => {
+                this.handleDownArrow();
+              }}
+            >
+              <DownArrow />
+            </IconButton>
+          </div>
+          <div className="col-xs-12">
+            every day for {this.state.totalDays} days,
+          </div>
+          <div className="col-xs-12">
+            so I can go to my dream vacation<br />in {this.state.location} for {this.state.tripDays} days
+            <Smiley />
+          </div>
+        </div>
       </div>
     );
   }
