@@ -20,14 +20,20 @@ const styleHeaderTitle = {
 }
 
 const HeaderWaves =
-  <svg className='headerwaves' width='1500' style={{position: 'absolute', top: '64px'}}>
-    <path d="M0,-10 C200,100 250,0 500,0 S750,80 850,-10 Z" style={{stroke: 'none', fill: '#FF0055'}}/>
-  </svg>
+  <div style={{position: 'absolute', top: '64px', width: '100%', overflow: 'hidden'}}>
+    <svg className='headerwaves' width='1500' style={{}}>
+      <path d="M0,-10 C200,100 250,0 500,0 S750,80 850,-10 Z" style={{stroke: 'none', fill: '#FF0055'}}/>
+    </svg>
+  </div>
 
 class Header extends Component {
   constructor(props) {
-    super(props)
+    super(props);
+
+    this.state = {
+    };
   }
+
   render() {
     return (
       <div>
