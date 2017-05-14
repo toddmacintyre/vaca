@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
+import env from '../../env.json';
 
 class PaymentDetails extends Component {
   constructor(props) {
     super(props)
-    this.paymentAmount = 0;
+    this.state = {
+      paymentAmount: '',
+    }
   }
 
-  // testOne(e) {
-  //   e.preventDefault();
-  //   console.log('hii')
-  // }
-
   componentDidMount() {
+    var that = this;
     // Create a Stripe client
-    var stripe = Stripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+    var stripe = Stripe(env.stripe);
 
     // Create an instance of Elements
     var elements = stripe.elements();
@@ -36,7 +35,7 @@ class PaymentDetails extends Component {
         color: '#fa755a',
         iconColor: '#fa755a'
       }
-    };
+    }
 
     var stripeTokenHandler = function(token) {
       // Insert the token ID into the form so it gets submitted to the server
@@ -71,16 +70,23 @@ class PaymentDetails extends Component {
     form.addEventListener('submit', function(event) {
       event.preventDefault();
 
-      stripe.createToken(card).then(function(result) {
-        if (result.error) {
-          // Inform the user if there was an error
-          var errorElement = document.getElementById('card-errors');
-          errorElement.textContent = result.error.message;
-        } else {
-          // Send the token to your server
-          stripeTokenHandler(result.token);
-        }
-      });
+      //update global payment remaining and total paid here
+
+      that.setState({
+        paymentAmount: '',
+      })
+      // stripe.createToken(card).then(function(result) {
+      //   if (result.error) {
+      //     // Inform the user if there was an error
+      //     var errorElement = document.getElementById('card-errors');
+      //     errorElement.textContent = result.error.message;
+      //     console.log('error? ', result.error)
+      //   } else {
+      //     // Send the token to your server
+      //     console.log('made it here!')
+      //     stripeTokenHandler(result.token);
+      //   }
+      // });
     });
   }
 
@@ -92,8 +98,14 @@ class PaymentDetails extends Component {
             <TextField
               fullWidth={true}
               hintText="$ Payment Amount"
+              value={this.state.paymentAmount}
+              onChange={(e) => {
+                this.setState({
+                  paymentAmount: e.target.value,
+                })
+              }}
             /><br />
-            <form>
+            <form id="payment-form">
               <div className="form-row">
                 <h5 style={{textAlign: "center"}} htmlFor="card-element">
                   Credit or debit card
@@ -102,7 +114,7 @@ class PaymentDetails extends Component {
                 </div>
                 <div id="card-errors" role="alert"></div>
               </div>
-              <button className="btn btn-large">Submit Payment</button>
+              <button type="submit" className="btn btn-large">Submit Payment</button>
             </form>
           </div>
         </div>
