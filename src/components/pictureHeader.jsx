@@ -36,15 +36,14 @@ class PictureHeader extends React.Component {
     };
   }
 
-  componentDidMount () {
-    this.setState({computedStyle: {
-      backgroundImage: 'url(' + this.props.backgroundImage + ')'
-    }})
-  }
-
   render () {
+    let computedStyle = {
+      backgroundImage: 'url(' + this.props.backgroundImage + ')',
+      height: (this.props.heightType === 'large') ? '100vh' : '50vh'
+    }
+
     return (
-      <div className='PictureHeader' style={this.state.computedStyle}>
+      <div className={'PictureHeader ' + this.props.heightType} style={computedStyle}>
         <AppBar 
           style={styleHeader}
           title={<div style={styleHeaderTitle}>{logoSmall}</div>}
@@ -52,7 +51,7 @@ class PictureHeader extends React.Component {
         />
         <div className='veil'/>
         <div className='PictureHeaderContent'>{this.props.content}</div>
-        {HeaderWaves}
+        {this.props.heightType === 'medium' ? HeaderWaves : null}
       </div>
     )
   }
