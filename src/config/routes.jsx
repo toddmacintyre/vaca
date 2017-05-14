@@ -16,14 +16,18 @@ class Routes extends Component {
     return (
       <Router>
         <Switch>
-          <Route path="/paymentdetails" component={PaymentDetails} />
-          <Route path="/test" component={Test} />
-          <Route exact path="/" render={() => <Redirect to="/home" /> } />
-          <Route path="/home" component={Home} />
-          <Route path="/date-picker" component={DatePicker} />
-          <Route path="/plan-picker" component={PlanPicker} />
-          <Route path="/tripItinerary" component={TripItinerary} />
-          <Route path="/savingAmountPicker" component={SavingAmountPicker} />
+          <App>
+            <div>
+              <Route path="/paymentdetails" component={PaymentDetails} />
+              <Route path="/test" component={Test} />
+              <Route exact path="/" render={() => <Redirect to="/home" /> } />
+              <Route path="/home" component={Home} />
+              <Route path="/date-picker" component={DatePicker} />
+              <Route path="/plan-picker" component={PlanPicker} />
+              <Route path="/tripItinerary" component={TripItinerary} />
+              <Route path="/savingAmountPicker" component={SavingAmountPicker} />
+            </div>
+          </App>
         </Switch>
       </Router>
     )
