@@ -1,0 +1,19 @@
+.savings-calculator {
+  font-size:90px;
+  position:relative;
+}
+
+.savings-calculator button:nth-child(2) {
+  position:absolute !important;
+  top:0px;
+  right:55px;
+  color:red;
+  
+}
+
+.savings-calculator button:nth-child(3) {
+  position:absolute !important;
+  top:45px;
+  right:55px;
+  color:red;
+}
