@@ -147,6 +147,11 @@ class MainPage extends React.Component {
               <h1 className="money">${this.state.savingStatus}</h1>
             </div>}
           />
+        {/*<div className="next-button-wrap text-center" style={{zIndex: '9999'}}>
+          <FlatButton 
+            onTouchTap={() => {}}
+            label="Start Trip!" className="next-button" />
+        </div>*/}
       </div>
 
     return (
