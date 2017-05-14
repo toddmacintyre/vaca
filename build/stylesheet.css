@@ -3,6 +3,9 @@ body {
   font-family: 'Varela Round', sans-serif;
 }
 
+h1 {
+  font-size: 96px;
+}
 h2 {
   color: #FF0055;
   font-size: 24px;
@@ -84,7 +87,11 @@ h2 {
 }
 
 .pictureheader-medium {
-  margin-top: 50vh;
+  margin-top: 40vh;
+}
+
+.pictureheader-medium .content {
+  height: 30vh;
 }
 
 .PictureHeaderContent {
@@ -104,3 +111,4 @@ h2 {
 .PictureHeaderContent .cityLogo {
   width: 80%;
 }
+
