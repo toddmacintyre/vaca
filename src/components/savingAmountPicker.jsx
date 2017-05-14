@@ -4,12 +4,14 @@ import itinerary from '../../data/itinerary.json'; // get data plugged in to fil
 import IconButton from 'material-ui/IconButton';
 import UpArrow from 'material-ui/svg-icons/navigation/expand-less';
 import DownArrow from 'material-ui/svg-icons/navigation/expand-more';
+import Smiley from 'material-ui/svg-icons/social/mood';
 
 class SavingAmountPicker extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      location: "New Orleans",
       totalCost: 900,
       totalDays: 0,
       amountPerDay: 10,
@@ -80,7 +82,8 @@ class SavingAmountPicker extends Component {
         <br />
         every day for {this.state.totalDays} days,
         <br />
-        so I can go to my dream vacation in New Orleans for {this.state.tripDays}
+        so I can go to my dream vacation in {this.state.location} for {this.state.tripDays} days
+        <Smiley />
       </div>
     );
   }
