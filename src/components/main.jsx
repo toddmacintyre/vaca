@@ -22,7 +22,7 @@ const styles = {
     zIndex: 100000000
   },
   grid: {
-    borderRadius: 100
+    borderRadius: 0
   },
   parentImg: {
     position: "relative",
@@ -111,9 +111,11 @@ class MainPage extends React.Component {
                   key={key++}
                 >
                   <div style={styles.parentImg}>
-                    <img style={styles.image1} src={tile.img} />
-                    <div style={styles.image2} width={150}>{tile.name}</div>
-                    <div style={styles.image3}>{tile.cost}&cent;</div>
+                    <div className="border-radius-img">
+                      <img style={styles.image1} src={tile.img} />
+                      <div style={styles.image2} width={150}>{tile.name}</div>
+                    </div>
+                      <div style={styles.image3}>{tile.cost}&cent;</div>
                   </div>
 
                 </GridTile>
