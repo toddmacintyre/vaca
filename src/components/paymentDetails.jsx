@@ -114,20 +114,20 @@ class PaymentDetails extends Component {
               <div className="text-center">
                 <p>OR</p>
                 <FlatButton
-                  style={{textAlign: "center"}}
+                  style={{textAlign: "center",color: "#EA750A",scale:"scale(1.2)"}}
                   label="ADD A BANK ACCOUNT"
                 />
               </div>
               <br />
-              <div className="text-center">
+              <div className="text-center bottom-btn-wrap">
                 <FlatButton
                   style={{textAlign: "center"}}
                   label="Confirm Payment"
                   onTouchTap={() => this.redirect()}
                   type="submit"
                 />
+                <p className="text-center">(Woohoo!)</p>
               </div>
-              <p className="text-center">(Woohoo!)</p>
             </form>
           </div>
         </div>
