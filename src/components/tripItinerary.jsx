@@ -15,11 +15,9 @@ class TripItinerary extends Component {
     }
     this.highlights = [];
     while (this.highlights.length < 4) {
-      console.log(itinerary)
       let current = itinerary[0].events[~~(Math.random() * itinerary[0].events.length)]
       if (!this.highlights.includes(current) && !(current.name.includes('Hotel') || current.name.includes('Free') || current.name.includes('Airport') || current.name.includes('R T A'))) this.highlights.push(current);
     }
-    console.log(this.highlights)
     this.state = {
       locations: [
         {

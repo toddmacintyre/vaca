@@ -68,8 +68,8 @@ class MainPage extends React.Component {
   }
 
   componentDidMount() {
-    let savingStatus = parseInt(this.props.location.search.substring(this.props.location.search.indexOf('?saved=') + 7, this.props.location.search.indexOf('&')))
-    let savingGoal = parseInt(this.props.location.search.slice(this.props.location.search.indexOf('&goal=') + 6))
+    let savingStatus = window.localStorage.saved
+    let savingGoal = window.localStorage.goal
     this.setState({savingStatus, savingGoal});
 
     if (savingStatus >= savingGoal) {this.setState({completed: true})}
@@ -81,7 +81,6 @@ class MainPage extends React.Component {
 
   progress(completed) {
     let percentage = this.state.savingStatus / this.state.savingGoal * 100
-    console.log(percentage)
     if (completed > percentage) {
       clearTimeout(this.timer);
       this.completeness = percentage

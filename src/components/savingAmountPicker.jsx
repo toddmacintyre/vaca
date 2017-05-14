@@ -72,8 +72,10 @@ class SavingAmountPicker extends Component {
   //   this.totalDays();
   // }
     redirect = () => {
+    window.localStorage.saved = this.state.amountPerDay;
+    window.localStorage.goal = this.state.totalCost;
     this.props.history.push({
-      pathname: `/paymentdetails/?${this.state.amountPerDay}`
+      pathname: '/paymentdetails'
     })
     const reqBody = {
       text: `Why, hello! In just ${this.state.totalDays} days, you will have saved enough money to go to ${this.state.location}.\nGreat job!\n\n`,

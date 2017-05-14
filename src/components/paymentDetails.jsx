@@ -7,7 +7,10 @@ class PaymentDetails extends Component {
   constructor(props) {
     super(props)
     console.log('props? ', props)
-    this.paymentAmount = window.location.search.slice(1) || 10;
+    this.paymentAmount = window.localStorage.saved || 10
+    this.goalAmount = window.localStorage.goal || 1000;
+    console.log(this.paymentAmount)
+    console.log(this.goalAmount)
   }
 
   componentDidMount() {
@@ -91,7 +94,7 @@ class PaymentDetails extends Component {
   }
 
   redirect = () => {
-    this.props.history.push('/main');
+    this.props.history.push('/main')
   }
 
   render() {
