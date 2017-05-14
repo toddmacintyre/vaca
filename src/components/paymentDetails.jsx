@@ -7,6 +7,7 @@ class PaymentDetails extends Component {
   constructor(props) {
     super(props)
     console.log('props? ', props)
+    this.paymentAmount = window.location.search.slice(1) || 10;
   }
 
   componentDidMount() {
@@ -94,13 +95,10 @@ class PaymentDetails extends Component {
   }
 
   render() {
-    console.log('context? ', this.context)
-    console.log('props? ', this.props)
-    console.log('state? ', this.state)
     return (
       <div className="container wizard">
         <div className="row">
-          <h2 style={{textAlign: "center", marginTop: '80'}}>How would you like to put in ${this.props.location.pathname.slice(this.props.location.pathname.indexOf('?') + 1)}/day?</h2>
+          <h2 style={{textAlign: "center", marginTop: 80}}>How would you like to put in ${this.paymentAmount}/day?</h2>
           <div className="col-xs-12">
             <br />
             <form id="payment-form">
@@ -116,20 +114,20 @@ class PaymentDetails extends Component {
               <div className="text-center">
                 <p>OR</p>
                 <FlatButton
-                  style={{textAlign: "center"}}
+                  style={{textAlign: "center",color: "#EA750A",scale:"scale(1.2)"}}
                   label="ADD A BANK ACCOUNT"
                 />
               </div>
               <br />
-              <div className="text-center">
+              <div className="text-center bottom-btn-wrap">
                 <FlatButton
                   style={{textAlign: "center"}}
                   label="Confirm Payment"
                   onTouchTap={() => this.redirect()}
                   type="submit"
                 />
+                <p className="text-center">(Woohoo!)</p>
               </div>
-              <p className="text-center">(Woohoo!)</p>
             </form>
           </div>
         </div>
