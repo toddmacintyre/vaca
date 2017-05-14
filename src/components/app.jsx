@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './header';
-import LeftDrawer from './LeftDrawer';
+import LeftDrawer from './leftDrawer';
 import { Link } from 'react-router-dom';
 
 class App extends Component {

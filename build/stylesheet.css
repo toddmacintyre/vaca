@@ -1,11 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
 body {
   font-family: 'Varela Round', sans-serif;
+  padding-top:55px;
 }
 
 h2 {
   color: #FF0055;
   font-size: 24px;
+}
+h3 {
+  color: #FF0055;
+  font-size: 16px;
+  text-transform:uppercase;
+  margin-top:60px;
+}
+.tophdr {
+  position:fixed;
+  width:100%;
+  top:0px;
+  z-index:99;
+}
+.tophdr div:nth-child(2) {
+  height: 45px;
 }
 
 .wizard .content {
@@ -62,6 +78,23 @@ h2 {
 
 .FlatButton span {
   font-size: 24px !important;
+}
+
+.trip-itinerary-button {
+  position:fixed;
+  bottom:0px;
+  padding:75px 0px 20px;
+  width:100%;
+  margin-left:-15px;
+  display:block;
+  background:url("img/button-bg-3.png") center center;
+  background-size:cover;
+}
+.trip-itinerary-button button {
+  color:#fff !important;
+  font-weight:bold !important;
+  transform: scale(1.25);
+  text-transform:capitalize !important;
 }
 
 .PictureHeader {
