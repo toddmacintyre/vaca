@@ -21,3 +21,22 @@ h2 {
 .wizard h2 {
   margin-top: 60px;
 }
+
+
+.headerwaves {
+  animation: slide 15s -2.4s ease-in-out infinite;
+}
+@keyframes slide {
+    0% {
+        left: -75%;
+        transform: scale(1,1) translate(0,0);
+    }
+    50% {
+        left: -25%;
+        transform: scale(1,.75) translate(0, -.25);
+    }
+    100% {
+        left: -75%;
+        transform: scale(1,1) translate(0,0);
+    }
+}
