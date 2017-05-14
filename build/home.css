@@ -1,0 +1,41 @@
+body, html {
+  height:100%;
+  font-size:16px;
+}
+.selected-chips {
+  min-height:75px;
+}
+.selected-chips span {
+  color:#fff !important; 
+}
+
+.next-button-wrap {
+  position:absolute;
+  bottom:0px;
+  padding:30px 0px 20px;
+  background:#EA750A;
+  width:100%;
+  margin-left:-15px;
+  display:block;
+}
+.next-button {
+  color:#fff !important;
+  font-weight:bold !important;
+  transform: scale(1.5);
+  text-transform:capitalize !important;
+}
+
+#splash {
+  position:absolute;
+  z-index:9999;
+  left:0px;
+  top:0px;
+  height:100%;
+  width:100%;
+  background:url("img/splash.png") center center no-repeat;
+  background-size:cover;
+  transition:all ease 1s;
+}
+.hide-splash {
+  opacity:0;
+}
