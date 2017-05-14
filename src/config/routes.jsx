@@ -9,6 +9,7 @@ import DatePicker from '../components/datePicker';
 import PlanPicker from '../components/planPicker';
 import App from '../components/app';
 import Splash from '../components/splash';
+import SavingAmountPicker from '../components/savingAmountPicker';
 
 class Routes extends Component {
   render() {
@@ -22,6 +23,7 @@ class Routes extends Component {
           <Route path="/date-picker" component={DatePicker} />
           <Route path="/plan-picker" component={PlanPicker} />
           <Route path="/tripItinerary" component={TripItinerary} />
+          <Route path="/savingAmountPicker" component={SavingAmountPicker} />
         </Switch>
       </Router>
     )
