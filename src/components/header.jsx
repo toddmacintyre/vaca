@@ -40,7 +40,9 @@ class Header extends Component {
         <AppBar 
           style={styleHeader}
           title={<div style={styleHeaderTitle}>{logoSmall}</div>}
-          onLeftIconButtonTouchTap={() => {}}
+          onLeftIconButtonTouchTap={() => {
+            this.props.handleDrawerClick()}
+          }
         />
         {HeaderWaves}
       </div>
