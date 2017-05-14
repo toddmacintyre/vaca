@@ -32,9 +32,27 @@ const styles = {
   },
   grid: {
     borderRadius: 100
+  },
+  cityFont: {
+    zIndex: 100000000
+  },
+  parentImg: {
+    position: "relative",
+    top: 0,
+    left: 0
+  },
+  image1: {
+    position: "relative",
+    top: 0,
+    left: 0
+  },
+  image2: {
+    position: "absolute",
+    top: 30,
+    right: 15
   }
 };
-const tilesData = TripsData;
+
 let key = 0;
 
 class PlanPicker extends Component {
@@ -49,6 +67,22 @@ class PlanPicker extends Component {
     this.props.history.push('/tripItinerary');
   }
 
+  tilesData = () => {
+    let arr = TripsData;
+    for (let t of arr) {
+      if (t.name.indexOf("New Orleans") >= 0) {
+        t['textImg'] = "img/city-logo-nola.png";
+      }
+      else if (t.name.indexOf("Vancouver") >= 0) {
+        t['textImg'] = "img/city-logo-vancouver.png";
+      }
+      else {
+        t['textImg'] = "img/city-logo-honolulu.png";
+      }
+    }
+    return arr;
+  };
+
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
@@ -60,15 +94,17 @@ class PlanPicker extends Component {
                 cellHeight={180}
                 style={styles.gridList}
               >
-                {tilesData.map((tile) => (
+                {this.tilesData().map((tile) => (
                   <GridTile
                     style={styles.grid}
                     key={key++}
-                    title={tile.name}
                     onTouchTap={() => {this.reroute()}}
-                    subtitle={tile.time}
+                    title={tile.time}
                   >
-                    <img src={tile.img} />
+                    <div style={styles.parentImg}>
+                      <img style={styles.image1} src={tile.img} />
+                      <img style={styles.image2} src={tile.textImg} width={150} />
+                    </div>
                   </GridTile>
                 ))}
               </GridList>
