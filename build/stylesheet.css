@@ -15,7 +15,7 @@ h3 {
   color: #FF0055;
   font-size: 16px;
   text-transform:uppercase;
-  margin-top:60px;
+  margin-top:24px;
 }
 .tophdr {
   position:fixed;
@@ -90,7 +90,7 @@ h3 {
   width:100%;
   margin-left:-15px;
   display:block;
-  background:url("img/button-bg-3.png") center center;
+  background:url("img/button-bg-3.png") center 37px no-repeat;
   background-size:cover;
 }
 .trip-itinerary-button button {
