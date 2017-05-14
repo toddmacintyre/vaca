@@ -7,6 +7,8 @@ import DownArrow from 'material-ui/svg-icons/navigation/expand-more';
 import Smiley from 'material-ui/svg-icons/social/mood';
 import FlatButton from 'material-ui/FlatButton';
 
+import axios from 'axios';
+
 class SavingAmountPicker extends Component {
   constructor(props) {
     super(props);
@@ -73,6 +75,16 @@ class SavingAmountPicker extends Component {
     this.props.history.push({
       pathname: `/paymentdetails/?${this.state.amountPerDay}`
     })
+    const reqBody = {
+      text: `Why, hello! In just ${this.state.totalDays} days, you will have saved enough money to go to ${this.state.location}.\nGreat job!\n\n`,
+    }
+    axios.post('/nexmo', reqBody)
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   render() {
@@ -114,7 +126,7 @@ class SavingAmountPicker extends Component {
           <FlatButton
           className="savings-amount-real-button"
           onTouchTap={() => this.redirect()}
-          style={{textAlign: "center"}} 
+          style={{textAlign: "center"}}
           type="submit"
           label="Start Saving!"
           fullWidth={true}
