@@ -53,7 +53,8 @@ class Home extends Component {
         margin: 4,
         backgroundColor: '#FF0055',
         labelColor: "#FFFFFF",
-        padding: "5px"
+        padding: "5px",
+        borderRadius: '20px'
       },
       chipLabel: {
         color: "#FFFFFF",
@@ -62,18 +63,20 @@ class Home extends Component {
       button: {
         margin: 4,
         backgroundColor: "#F5F5F5",
+        padding: "5px",
         color:"#FF0055",
+        borderRadius: '20px'
       },
       buttonLabel: {
         color:"#FF0055",
-        padding: "5px",
-        textTransform: "none"
+        fontSize: "16px"
       },
       wrapper: {
         display: 'flex',
         flexWrap: 'wrap',
         align: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginTop: '36px'
       },
       container: {
         textAlign: 'center',
@@ -100,14 +103,14 @@ class Home extends Component {
 
   renderButtons(data) {
     return (
-      <RaisedButton
+      <Chip
         key={data.key}
         onTouchTap={() => this.addToInterests(data)}
         style={this.styles.button}
         labelStyle={this.styles.buttonLabel}
       >
         {data.label}
-      </RaisedButton>
+      </Chip>
     );
   }
 
@@ -169,7 +172,7 @@ class Home extends Component {
               </div>
             </div>
             <br/>
-            <div>
+            <div style={this.styles.wrapper}>
               {this.state.chipData.map(this.renderButtons, this)}
             </div>
             {this.showNext()}
