@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+import TextField from 'material-ui/TextField';
 
 class PaymentDetails extends Component {
   constructor(props) {
     super(props)
+    this.paymentAmount = 0;
   }
+
+  // testOne(e) {
+  //   e.preventDefault();
+  //   console.log('hii')
+  // }
 
   componentDidMount() {
     // Create a Stripe client
@@ -79,17 +86,27 @@ class PaymentDetails extends Component {
 
   render() {
     return (
-      <form action="/charge" method="post" id="payment-form">
-        <div className="form-row">
-          <label htmlFor="card-element">
-            Credit or debit card
-          </label>
-          <div id="card-element">
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-12">
+            <TextField
+              fullWidth={true}
+              hintText="$ Payment Amount"
+            /><br />
+            <form>
+              <div className="form-row">
+                <h5 style={{textAlign: "center"}} htmlFor="card-element">
+                  Credit or debit card
+                </h5>
+                <div id="card-element">
+                </div>
+                <div id="card-errors" role="alert"></div>
+              </div>
+              <button className="btn btn-large">Submit Payment</button>
+            </form>
           </div>
-          <div id="card-errors" role="alert"></div>
         </div>
-        <button>Submit Payment</button>
-      </form>
+      </div>
     )
   }
 }
