@@ -12,11 +12,12 @@ body, html {
 .next-button-wrap {
   position:absolute;
   bottom:0px;
-  padding:30px 0px 20px;
-  background:#EA750A;
+  padding:75px 0px 20px;
   width:100%;
   margin-left:-15px;
   display:block;
+  background:url("img/button-bg-5.png") center center;
+  background-size:cover;
 }
 .next-button {
   color:#fff !important;

@@ -27,7 +27,6 @@ const styles = {
   },
   gridList: {
     width: 400,
-    height: 450,
     overflowY: 'auto',
   },
   grid: {
@@ -52,13 +51,14 @@ class PlanPicker extends Component {
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-        <div className="container">
+        <div className="container wizard">
           <div className="text-center">
-            <h2>We found something you might like</h2>
-            <div style={styles.root}>
+            <h2 className="plan-picker-hdr">We found something you might like</h2>
+            <div style={styles.root} className="plan-picker-wrap">
               <GridList
                 cellHeight={180}
                 style={styles.gridList}
+                
               >
                 {tilesData.map((tile) => (
                   <GridTile

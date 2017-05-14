@@ -29,7 +29,7 @@ const HeaderWaves =
 class Header extends Component {
   render() {
     return (
-      <div>
+      <div className="tophdr">
         <AppBar 
           style={styleHeader}
           title={<div style={styleHeaderTitle}>{logoSmall}</div>}

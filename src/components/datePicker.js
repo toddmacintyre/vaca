@@ -33,6 +33,10 @@ class DateRangePicker extends Component {
     });
   };
 
+  redirect = () => {
+    this.props.history.push("/plan-picker");
+  }
+
   handleChangeMaxDate = (event, date) => {
     this.setState({
       maxDate: date,
@@ -71,6 +75,7 @@ class DateRangePicker extends Component {
           <FlatButton
             label="Next"
             className='FlatButton'
+            onTouchTap={() => this.redirect()}
           />
         </div>
       </div>

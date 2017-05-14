@@ -1,11 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
 body {
   font-family: 'Varela Round', sans-serif;
+  padding-top:55px;
 }
 
 h2 {
   color: #FF0055;
   font-size: 24px;
+}
+.tophdr {
+  position:fixed;
+  width:100%;
+  top:0px;
+  z-index:99;
+}
+.tophdr div:nth-child(2) {
+  height: 45px;
 }
 
 .wizard .content {
