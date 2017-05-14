@@ -88,7 +88,6 @@ class Home extends Component {
   }
 
   handleRequestDelete = (data) => {
-    console.log(data);
     this.interestData = this.state.interestData;
     this.chipData = this.state.chipData;
     const chipToDelete = this.interestData.map((chip) => chip.key).indexOf(data.key);
@@ -115,7 +114,6 @@ class Home extends Component {
   }
 
   renderChips(data) {
-    console.log("rendering chips");
     return (
       <Chip
         key={data.key}
@@ -142,8 +140,6 @@ class Home extends Component {
   }
 
   addToInterests = (data) => {
-    console.log("adding to interests");
-    console.log(data);
     this.interestData = this.state.interestData;
     this.chipData = this.state.chipData;
     this.interestData.push({
@@ -151,13 +147,11 @@ class Home extends Component {
       label: data.label
     });
     const chipToDelete = this.chipData.map((chip) => chip.key).indexOf(data.key);
-    console.log(chipToDelete);
     this.chipData.splice(chipToDelete, 1);
     this.setState({
       chipData: this.chipData,
       interestData: this.interestData
     });
-    console.log(this.state.interestData);
   }
   
   render() {

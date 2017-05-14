@@ -22,6 +22,7 @@ const LeftDrawer = (props) => {
           primaryText={item.text}
           leftIcon={item.icon}
           containerElement={<Link to={item.link} />}
+          onTouchTap={() => handleDrawerClick()}
         />
       ))}
     </Drawer>
