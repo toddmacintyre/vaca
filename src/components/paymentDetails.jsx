@@ -79,17 +79,21 @@ class PaymentDetails extends Component {
 
   render() {
     return (
-      <form action="/charge" method="post" id="payment-form">
-        <div className="form-row">
-          <label htmlFor="card-element">
-            Credit or debit card
-          </label>
-          <div id="card-element">
-          </div>
-          <div id="card-errors" role="alert"></div>
+      <div className="container">
+        <div className="row">
+          <form action="/charge" method="post" id="payment-form">
+            <div className="form-row">
+              <label htmlFor="card-element">
+                Credit or debit card
+              </label>
+              <div id="card-element">
+              </div>
+              <div id="card-errors" role="alert"></div>
+            </div>
+            <button className="btn btn-large">Submit Payment</button>
+          </form>
         </div>
-        <button>Submit Payment</button>
-      </form>
+      </div>
     )
   }
 }
