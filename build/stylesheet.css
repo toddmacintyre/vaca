@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
-
 body {
   font-family: 'Varela Round', sans-serif;
 }
@@ -8,7 +7,6 @@ h2 {
   color: #FF0055;
   font-size: 24px;
 }
-
 
 .wizard .content {
   display: flex;
@@ -22,22 +20,45 @@ h2 {
   margin-top: 60px;
 }
 
-
 .headerwaves {
   position: relative;
   animation: slide 15s -2.4s ease-in-out infinite;
 }
+
 @keyframes slide {
-    0% {
-        left: -75%;
-        transform: scale(1,1) translate(0,0);
-    }
-    50% {
-        left: -25%;
-        transform: scale(1,.75) translate(0, -.25);
-    }
-    100% {
-        left: -75%;
-        transform: scale(1,1) translate(0,0);
-    }
+  0% {
+    left: -75%;
+    transform: scale(1, 1) translate(0, 0);
+  }
+  50% {
+    left: -25%;
+    transform: scale(1, .75) translate(0, -.25);
+  }
+  100% {
+    left: -75%;
+    transform: scale(1, 1) translate(0, 0);
+  }
+}
+
+.FlatButtonContainer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  background-position: center center;
+  background-size: cover;
+  height: 30vw;
+  padding-top: 32px;
+}
+
+.FlatButton {
+  height: 72px !important;
+  border-radius: 36px !important;
+  font-size: 24px !important;
+  font-family: 'Varela Round', sans-serif !important;
+  color: white !important;
+}
+.FlatButton span {
+  font-size: 24px !important;
 }

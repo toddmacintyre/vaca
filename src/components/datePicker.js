@@ -8,7 +8,7 @@ import DatePicker from 'material-ui/DatePicker';
 import FlatButton from 'material-ui/FlatButton';
 
 import Header from './header';
-import {styleFlatButtonContainer, styleFlatButton} from '../shared/style'
+import {styleFlatButton} from '../shared/style'
 
 class DateRangePicker extends Component {
   constructor(props) {
@@ -67,10 +67,10 @@ class DateRangePicker extends Component {
             fullWidth={true}
           />
         </div>
-        <div style={styleFlatButtonContainer}>
+        <div className='FlatButtonContainer' style={{backgroundImage: 'url(img/button-bg-2.png)'}}>
           <FlatButton
             label="Next"
-            style={styleFlatButton}
+            className='FlatButton'
           />
         </div>
       </div>
