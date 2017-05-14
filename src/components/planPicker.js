@@ -26,12 +26,23 @@ const styles = {
     justifyContent: 'space-around',
   },
   gridList: {
-    width: 500,
+    width: 400,
     height: 450,
     overflowY: 'auto',
   },
+  grid: {
+    borderRadius: 100
+  }
 };
-const tilesData = TripsData;
+const tilesData = () => {
+  let arr = [];
+  for (let t of TripsData) {
+    if (t.name.indexOf("New Orleans") !== -1) {
+      arr.push(t);
+    }
+  }
+  return arr;
+};
 let key = 0;
 
 class PlanPicker extends Component {
@@ -40,6 +51,10 @@ class PlanPicker extends Component {
     this.state = {
 
     };
+  }
+
+  reroute () {
+    this.props.history.push('/tripItinerary');
   }
 
   render() {
@@ -53,12 +68,13 @@ class PlanPicker extends Component {
                 cellHeight={180}
                 style={styles.gridList}
               >
-                {tilesData.map((tile) => (
+                {tilesData().map((tile) => (
                   <GridTile
+                    style={styles.grid}
                     key={key++}
                     title={tile.name}
+                    onTouchTap={() => {this.reroute()}}
                     subtitle={tile.time}
-                    actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
                   >
                     <img src={tile.img} />
                   </GridTile>
