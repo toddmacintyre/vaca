@@ -3,9 +3,12 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 
 import Home from '../components/home';
 import PaymentDetails from '../components/paymentDetails';
+import TripItinerary from '../components/tripItinerary.jsx';
 import Test from '../components/test';
 import DatePicker from '../components/datePicker';
 import PlanPicker from '../components/planPicker';
+import App from '../components/app';
+import Splash from '../components/splash';
 
 class Routes extends Component {
   render() {
@@ -18,6 +21,7 @@ class Routes extends Component {
           <Route path="/home" component={Home} />
           <Route path="/date-picker" component={DatePicker} />
           <Route path="/plan-picker" component={PlanPicker} />
+          <Route path="/tripItinerary" component={TripItinerary} />
         </Switch>
       </Router>
     )
