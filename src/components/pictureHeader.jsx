@@ -51,6 +51,7 @@ class PictureHeader extends React.Component {
           onLeftIconButtonTouchTap={() => {}}
         />
         <div className='veil'/>
+        <div className='PictureHeaderContent'>{this.props.content}</div>
         {HeaderWaves}
       </div>
     )

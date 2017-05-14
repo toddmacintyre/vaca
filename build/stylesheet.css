@@ -77,12 +77,30 @@ h2 {
 .PictureHeader .veil {
   position: absolute;
   top: 0;
-    left: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(255,0,85,.67) 0%,rgba(255,0,85,0) 100%); 
+  background: linear-gradient(to bottom, rgba(255, 0, 85, .67) 0%, rgba(255, 0, 85, 0) 100%);
 }
 
 .pictureheader-medium {
   margin-top: 50vh;
+}
+
+.PictureHeaderContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+}
+
+.PictureHeaderContent .cityLogo {
+  width: 80%;
 }

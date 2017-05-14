@@ -18,7 +18,11 @@ class MainPage extends React.Component {
   render() {
     return (
       <div className="container wizard pictureheader-medium">
-        <PictureHeader heightType={'medium'} backgroundImage={this.state.background}/>
+        <PictureHeader
+          heightType={'medium'} 
+          backgroundImage={this.state.background}
+          content={<div><h3>5 days in</h3><img className='cityLogo' src='img/city-logo-nola.png'/></div>}
+          />
         <h2 className="text-center">You have saved</h2>
         <div className="content">
           <h1 className="money">$100</h1>
