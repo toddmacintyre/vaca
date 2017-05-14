@@ -4,6 +4,9 @@ body {
   padding-top:55px;
 }
 
+h1 {
+  font-size: 96px;
+}
 h2 {
   color: #FF0055;
   font-size: 24px;
@@ -117,7 +120,11 @@ h3 {
 }
 
 .pictureheader-medium {
-  margin-top: 50vh;
+  margin-top: 40vh;
+}
+
+.pictureheader-medium .content {
+  height: 30vh;
 }
 
 .PictureHeaderContent {
@@ -137,3 +144,7 @@ h3 {
 .PictureHeaderContent .cityLogo {
   width: 80%;
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7e5971764517aff934724c527bf638d909ffd81c
