@@ -10,15 +10,15 @@ class TripItinerary extends Component {
     this.state = {
       locations: [
         {
-          name: 'city1',
+          name: 'stop1',
           imgURL: 'https://amazingcarousel.com/wp-content/uploads/amazingcarousel/7/images/lightbox/night-in-the-city-lightbox.jpg'
         },
         {
-          name: 'city2',
+          name: 'stop2',
           imgURL: 'https://amazingcarousel.com/wp-content/uploads/amazingcarousel/7/images/lightbox/night-in-the-city-lightbox.jpg'
         },
         {
-          name: 'city3',
+          name: 'stop3',
           imgURL: 'https://amazingcarousel.com/wp-content/uploads/amazingcarousel/7/images/lightbox/night-in-the-city-lightbox.jpg'
         },
       ],
