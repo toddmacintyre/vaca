@@ -6,6 +6,9 @@ import React, {Component} from 'react';
 import Chip from 'material-ui/Chip';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
+import Header from './header';
+
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 
 function handleRequestDelete() {
@@ -21,13 +24,26 @@ class Home extends Component {
     super(props);
     this.state = {
       chipData: [
-        {key: 0, label: 'Beach'},
-        {key: 1, label: 'City'},
-        {key: 2, label: 'New Orleans'},
-        {key: 3, label: 'Florida'},
-        {key: 4, label: 'France'},
-        {key: 5, label: 'London'},
-
+        {key: 0, label: "Beach"},
+        {key: 1, label: "City"},
+        {key: 2, label: "History"},
+        {key: 3, label: "Music"},
+        {key: 4, label: "Night Life"},
+        {key: 5, label: "Attractions"},
+        {key: 6, label: "Cusine"},
+        {key: 7, label: "Outdoors"},
+        {key: 8, label: "Sites"},
+        {key: 9, label: "Relaxation"},
+        // {ky: 10, label: "Saenger Theatre"},
+        // {key: 11, label: "Lions Gate Bridge"},
+        // {key: 12, label: "Manoa Falls"},
+        // {key: 13, label: "Saddle Road"},
+        // {key: 14, label: "Diamond Head"},
+        // {key: 15, label: "The Shops At Wailea"},
+        // {key: 16, label: "Mauna Kea Summit"},
+        // {key: 17, label: "Lake Washington"},
+        // {key: 18, label: "Spa Grande"},
+        // {key: 19, label: "Cabildo"},
       ],
 
       interestData: []
@@ -35,15 +51,36 @@ class Home extends Component {
     this.styles = {
       chip: {
         margin: 4,
+        backgroundColor: '#FF0055',
+        labelColor: "#FFFFFF",
+        padding: "5px"
+      },
+      chipLabel: {
+        color: "#FFFFFF",
+        fontSize: "16px"
+      },
+      button: {
+        margin: 4,
+        backgroundColor: "#F5F5F5",
+        color:"#FF0055",
+      },
+      buttonLabel: {
+        color:"#FF0055",
+        padding: "5px",
+        textTransform: "none"
       },
       wrapper: {
         display: 'flex',
         flexWrap: 'wrap',
-        align: 'center'
+        align: 'center',
+        justifyContent: 'center'
       },
       container: {
         textAlign: 'center',
       },
+      nextButtonLabel : {
+        textTransform: "none"
+      }
     };
   }
 
@@ -57,13 +94,17 @@ class Home extends Component {
     this.setState({interestData: this.interestData, chipData: this.chipData});
   };
 
+  redirect = () => {
+    this.props.history.push("/date-picker");
+  }
+
   renderButtons(data) {
     return (
       <RaisedButton
-        primary={true} 
         key={data.key}
         onTouchTap={() => this.addToInterests(data)}
-        style={this.styles.chip}
+        style={this.styles.button}
+        labelStyle={this.styles.buttonLabel}
       >
         {data.label}
       </RaisedButton>
@@ -76,6 +117,7 @@ class Home extends Component {
       <Chip
         key={data.key}
         onRequestDelete={() => this.handleRequestDelete(data)}
+        labelStyle={this.styles.chipLabel}
         style={this.styles.chip}
       >
         {data.label}
@@ -86,7 +128,12 @@ class Home extends Component {
   showNext() {
     if (this.state.interestData.length > 0) {
       return (
-        <FlatButton label="Next" />
+        <div className="next-button-wrap">
+          <FlatButton 
+            onTouchTap={() => this.redirect()}
+            labelStyle={this.styles.nextButtonLabel} 
+            label="Next" className="next-button" />
+        </div>
       )
     }
   }
@@ -112,20 +159,23 @@ class Home extends Component {
   
   render() {
     return (
-        <div className="container">
+      <div>
+        <div className="container wizard">
           <div className="text-center">
-            <h1>Vaca</h1>
             <h2>I dream to go to...</h2>
-            <div style={this.styles.wrapper}>
-              {this.state.interestData.map(this.renderChips, this)}
+            <div className="selected-chips">
+              <div style={this.styles.wrapper}>
+                {this.state.interestData.map(this.renderChips, this)}
+              </div>
             </div>
             <br/>
-            <div style={this.styles.wrapper}>
+            <div>
               {this.state.chipData.map(this.renderButtons, this)}
             </div>
             {this.showNext()}
           </div>
         </div>
+      </div>
     );
   }
 }
