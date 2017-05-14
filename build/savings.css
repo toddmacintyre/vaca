@@ -1,19 +1,52 @@
 .savings-calculator {
-  font-size:90px;
+  font-size:82px;
   position:relative;
+  color:#fff;
+  margin:80px 0px 70px;
+}
+
+.savings-calculator .background {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  width: 248px;
+  top: -18px;
+  left: 83px;
 }
 
 .savings-calculator button:nth-child(2) {
   position:absolute !important;
   top:0px;
-  right:55px;
+  right:30px;
   color:red;
   
 }
 
 .savings-calculator button:nth-child(3) {
   position:absolute !important;
-  top:45px;
-  right:55px;
+  top:60px;
+  right:30px;
   color:red;
+}
+.savings-calculator .arrow {
+  width:35px;
+}
+
+.savings-amount-button {
+  position:fixed;
+  bottom:0px;
+  padding:75px 0px 20px;
+  width:100%;
+  margin-left:-15px;
+  display:block;
+  background:url("img/button-bg-5.png") top center;
+  background-size:cover;
+}
+.savings-amount-button .savings-amount-real-button {
+  color:#fff !important;
+  font-weight:bold !important;
+  transform: scale(1.25);
+}
+.savings-amount-button .savings-amount-real-button span {
+  text-transform:none !important;
 }
