@@ -81,17 +81,19 @@ class PaymentDetails extends Component {
     return (
       <div className="container">
         <div className="row">
-          <form action="/charge" method="post" id="payment-form">
-            <div className="form-row">
-              <label htmlFor="card-element">
-                Credit or debit card
-              </label>
-              <div id="card-element">
+          <div className="col-xs-12">
+            <form action="/charge" method="post" id="payment-form">
+              <div className="form-row">
+                <h5 style={{textAlign: "center"}} htmlFor="card-element">
+                  Credit or debit card
+                </h5>
+                <div id="card-element">
+                </div>
+                <div id="card-errors" role="alert"></div>
               </div>
-              <div id="card-errors" role="alert"></div>
-            </div>
-            <button className="btn btn-large">Submit Payment</button>
-          </form>
+              <button className="btn btn-large">Submit Payment</button>
+            </form>
+          </div>
         </div>
       </div>
     )
