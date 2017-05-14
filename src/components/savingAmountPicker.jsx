@@ -70,13 +70,13 @@ class SavingAmountPicker extends Component {
 
   render() {
     return (
-      <div style={this.styles.centering} className="container">
+      <div style={this.styles.centering} className="container wizard">
         <div className="row">
-          <div style={this.styles.topper} className="col-xs-8 col-xs-offset-2">
-            Help me save
-          </div>
-          <div className="col-xs-12">
-            ${this.state.amountPerDay}
+          <h2 className="text-center">Help me save</h2>
+          <div className="savings-calculator">
+            <div class="number">
+              ${this.state.amountPerDay}
+            </div>
             <IconButton
               onTouchTap={() => {
                 this.handleUpArrow()
@@ -84,6 +84,7 @@ class SavingAmountPicker extends Component {
             >
               <UpArrow />
             </IconButton>
+
             <IconButton
               onTouchTap={() => {
                 this.handleDownArrow();
@@ -91,6 +92,7 @@ class SavingAmountPicker extends Component {
             >
               <DownArrow />
             </IconButton>
+
           </div>
           <div className="col-xs-12">
             every day for {this.state.totalDays} days,

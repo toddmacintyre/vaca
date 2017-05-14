@@ -92,9 +92,9 @@ class PaymentDetails extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container wizard">
         <div className="row">
-          <h3 style={{textAlign: "center"}}>Make A Payment!</h3>
+          <h2 style={{textAlign: "center"}}>Make A Payment!</h2>
           <div className="col-xs-12">
             <TextField
               fullWidth={true}
