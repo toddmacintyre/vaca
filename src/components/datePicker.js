@@ -47,34 +47,31 @@ class DateRangePicker extends Component {
 
   render() {
     return (
-      <div>
-        <Header />
-        <div className="container wizard">
-          <h2 className="text-center">I will be free around...</h2>
-          <div className="content">
-            <DatePicker
-              onChange={this.handleChangeMinDate}
-              autoOk={this.state.autoOk}
-              floatingLabelText="From..."
-              defaultDate={this.state.minDate}
-              disableYearSelection={this.state.disableYearSelection}
-              fullWidth={true}
-            />
-            <DatePicker
-              onChange={this.handleChangeMaxDate}
-              autoOk={this.state.autoOk}
-              floatingLabelText="To..."
-              defaultDate={this.state.maxDate}
-              disableYearSelection={this.state.disableYearSelection}
-              fullWidth={true}
-            />
-          </div>
-          <div style={styleFlatButtonContainer}>
-            <FlatButton
-              label="Next"
-              style={styleFlatButton}
-            />
-          </div>
+      <div className="container wizard">
+        <h2 className="text-center">I will be free around...</h2>
+        <div className="content">
+          <DatePicker
+            onChange={this.handleChangeMinDate}
+            autoOk={this.state.autoOk}
+            floatingLabelText="From..."
+            defaultDate={this.state.minDate}
+            disableYearSelection={this.state.disableYearSelection}
+            fullWidth={true}
+          />
+          <DatePicker
+            onChange={this.handleChangeMaxDate}
+            autoOk={this.state.autoOk}
+            floatingLabelText="To..."
+            defaultDate={this.state.maxDate}
+            disableYearSelection={this.state.disableYearSelection}
+            fullWidth={true}
+          />
+        </div>
+        <div style={styleFlatButtonContainer}>
+          <FlatButton
+            label="Next"
+            style={styleFlatButton}
+          />
         </div>
       </div>
     );

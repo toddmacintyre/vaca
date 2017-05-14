@@ -4,7 +4,7 @@ import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import Menu from 'material-ui/svg-icons/navigation/menu';
-import {logoSmall} from './assets'
+import {logoSmall} from './assets';
 
 const styleHeader = {
   backgroundColor: '#FF0055',
@@ -19,6 +19,11 @@ const styleHeaderTitle = {
   height: '100%'
 }
 
+const HeaderWaves =
+  <svg className='headerwaves' width='1500' style={{position: 'absolute', top: '64px'}}>
+    <path d="M0,-10 C200,100 250,0 500,0 S750,80 850,-10 Z" style={{stroke: 'none', fill: '#FF0055'}}/>
+  </svg>
+
 class Header extends Component {
   render() {
     return (
@@ -28,6 +33,7 @@ class Header extends Component {
           title={<div style={styleHeaderTitle}>{logoSmall}</div>}
           onLeftIconButtonTouchTap={() => {}}
         />
+        {HeaderWaves}
       </div>
     )
   }
