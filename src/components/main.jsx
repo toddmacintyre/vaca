@@ -6,7 +6,7 @@ import {GridList, GridTile} from 'material-ui/GridList';
 
 import PictureHeader from './pictureHeader';
 
-import TripsData from '../../data/trips.json';
+import TripsData from '../../data/save-more.json';
 
 const styles = {
   root: {
@@ -18,16 +18,17 @@ const styles = {
     width: 400,
     overflowY: 'auto',
   },
-  grid: {
-    borderRadius: 100
-  },
   cityFont: {
     zIndex: 100000000
+  },
+  grid: {
+    borderRadius: 100
   },
   parentImg: {
     position: "relative",
     top: 0,
-    left: 0
+    left: 0,
+    borderRadius: 100
   },
   image1: {
     position: "relative",
@@ -36,8 +37,18 @@ const styles = {
   },
   image2: {
     position: "absolute",
-    top: 30,
-    right: 15
+    top: 70,
+    right: 10,
+    color: "white"
+  },
+  image3: {
+    position: "absolute",
+    top: 20,
+    right: 10,
+    color: "white",
+    background: "#EA4C4B",
+    borderRadius: 100,
+    padding: 10,
   }
 };
 
@@ -72,21 +83,7 @@ class MainPage extends React.Component {
     }
   }
 
-  tilesData = () => {
-    let arr = TripsData;
-    for (let t of arr) {
-      if (t.name.indexOf("New Orleans") >= 0) {
-        t['textImg'] = "img/city-logo-nola.png";
-      }
-      else if (t.name.indexOf("Vancouver") >= 0) {
-        t['textImg'] = "img/city-logo-vancouver.png";
-      }
-      else {
-        t['textImg'] = "img/city-logo-honolulu.png";
-      }
-    }
-    return arr;
-  };
+  tilesData = TripsData;
 
   render() {
     return (
@@ -108,17 +105,19 @@ class MainPage extends React.Component {
               cellHeight={180}
               style={styles.gridList}
             >
-              {this.tilesData().map((tile) => (
+              {this.tilesData.map((tile) => (
                 <GridTile
                   style={styles.grid}
                   key={key++}
-                  title={tile.time}
                 >
                   <div style={styles.parentImg}>
                     <img style={styles.image1} src={tile.img} />
-                    <img style={styles.image2} src={tile.textImg} width={150} />
+                    <div style={styles.image2} width={150}>{tile.name}</div>
+                    <div style={styles.image3}>{tile.cost}&cent;</div>
                   </div>
+
                 </GridTile>
+
               ))}
             </GridList>
           </div>
