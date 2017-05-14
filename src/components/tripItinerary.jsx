@@ -4,12 +4,14 @@ import Avatar from 'material-ui/Avatar';
 import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem';
 import itinerary from '../../data/itinerary.json';
+import PictureHeader from './pictureHeader';
 
 class TripItinerary extends Component {
   constructor(props) {
     super(props);
     this.state = {
       test: true,
+      background: 'img/photo-nola.jpg'
     }
     this.highlights = [];
     while (this.highlights.length < 4) {
@@ -42,7 +44,12 @@ class TripItinerary extends Component {
 
   render() {
     return (
-      <div className="container wizard">
+      <div className="container pictureheader-medium">
+        <PictureHeader
+          heightType={'medium'} 
+          backgroundImage='img/photo-nola.jpg'
+          content={<div><h3>5 days in</h3><img className='cityLogo' src='img/city-logo-nola.png'/></div>}
+          />
         <div className="col-xs-12">
           <h3>Highlights</h3>
           <List>
