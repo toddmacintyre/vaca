@@ -24,6 +24,7 @@ h2 {
 
 
 .headerwaves {
+  position: relative;
   animation: slide 15s -2.4s ease-in-out infinite;
 }
 @keyframes slide {
