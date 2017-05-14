@@ -3,19 +3,10 @@
  * which incorporates components provided by Material-UI.
  */
 import React, {Component} from 'react';
-import {deepOrange500} from 'material-ui/styles/colors';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Chip from 'material-ui/Chip';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 
-
-const muiTheme = getMuiTheme({
-  palette: {
-    accent1Color: deepOrange500,
-  },
-});
 
 function handleRequestDelete() {
   alert('You clicked the delete button.');
@@ -69,6 +60,7 @@ class Home extends Component {
   renderButtons(data) {
     return (
       <RaisedButton
+        primary={true} 
         key={data.key}
         onTouchTap={() => this.addToInterests(data)}
         style={this.styles.chip}
@@ -120,7 +112,6 @@ class Home extends Component {
   
   render() {
     return (
-      <MuiThemeProvider muiTheme={muiTheme}>
         <div className="container">
           <div className="text-center">
             <h1>Vaca</h1>
@@ -135,7 +126,6 @@ class Home extends Component {
             {this.showNext()}
           </div>
         </div>
-      </MuiThemeProvider>
     );
   }
 }
