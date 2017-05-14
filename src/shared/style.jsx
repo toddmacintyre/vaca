@@ -19,16 +19,3 @@ export const muiTheme = getMuiTheme({
     // shadowColor: fullBlack,
   },
 });
-
-export const styleFlatButtonContainer = {
-  position: 'absolute',
-  bottom: '24px',
-  width: '100%',
-  left: '0',
-  textAlign: 'center'
-}
-
-export const styleFlatButton = {
-  height: '72px',
-  borderRadius: '36px'
-}
