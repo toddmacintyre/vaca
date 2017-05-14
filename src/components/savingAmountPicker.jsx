@@ -17,6 +17,7 @@ class SavingAmountPicker extends Component {
       totalDays: 0,
       amountPerDay: 10,
       tripDays: 5,
+      redirect: false,
     };
 
     // this.amountPerDay = this.amountPerDay.bind(this);
@@ -69,7 +70,9 @@ class SavingAmountPicker extends Component {
   //   this.totalDays();
   // }
     redirect = () => {
-    this.props.history.push("/paymentdetails");
+    this.props.history.push({
+      pathname: `/paymentdetails/?${this.state.amountPerDay}`
+    })
   }
 
   render() {
@@ -117,6 +120,8 @@ class SavingAmountPicker extends Component {
           fullWidth={true}
           />
         </div>
+        {this.state.redirect &&
+          <Redirect to="/paymentdetails" />}
       </div>
     );
   }
