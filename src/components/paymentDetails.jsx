@@ -7,10 +7,10 @@ class PaymentDetails extends Component {
     this.paymentAmount = 0;
   }
 
-  testOne(e) {
-    e.preventDefault();
-    console.log('hii')
-  }
+  // testOne(e) {
+  //   e.preventDefault();
+  //   console.log('hii')
+  // }
 
   componentDidMount() {
     // Create a Stripe client
@@ -68,8 +68,8 @@ class PaymentDetails extends Component {
     });
 
     var form = document.getElementById('payment-form');
-    // form.addEventListener('submit', function(event) {
-    //   event.preventDefault();
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
 
       stripe.createToken(card).then(function(result) {
         if (result.error) {
@@ -93,7 +93,7 @@ class PaymentDetails extends Component {
               fullWidth={true}
               hintText="$ Payment Amount"
             /><br />
-            <form onSubmit={this.testOne()}>
+            <form>
               <div className="form-row">
                 <h5 style={{textAlign: "center"}} htmlFor="card-element">
                   Credit or debit card
