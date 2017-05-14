@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+import TextField from 'material-ui/TextField';
 
 class PaymentDetails extends Component {
   constructor(props) {
     super(props)
+    this.paymentAmount = 0;
+  }
+
+  testOne(e) {
+    e.preventDefault();
+    console.log('hii')
   }
 
   componentDidMount() {
@@ -61,8 +68,8 @@ class PaymentDetails extends Component {
     });
 
     var form = document.getElementById('payment-form');
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
+    // form.addEventListener('submit', function(event) {
+    //   event.preventDefault();
 
       stripe.createToken(card).then(function(result) {
         if (result.error) {
@@ -82,7 +89,11 @@ class PaymentDetails extends Component {
       <div className="container">
         <div className="row">
           <div className="col-xs-12">
-            <form action="/charge" method="post" id="payment-form">
+            <TextField
+              fullWidth={true}
+              hintText="$ Payment Amount"
+            /><br />
+            <form onSubmit={this.testOne()}>
               <div className="form-row">
                 <h5 style={{textAlign: "center"}} htmlFor="card-element">
                   Credit or debit card
